@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Argumenter, traiter les objections et défendre sa marge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap">
+<style>
+/* ── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Fiche d'exercices en thème clair : blocs = séances, cartes dépliables, corrections masquables */
+:root {
+  --bg:        #f4f6f9;
+  --surface:   #ffffff;
+  --card:      #ffffff;
+  --border:    #dfe3ea;
+  --border-hi: #b9c0ce;
+  --text:      #1d2230;
+  --text-dim:  #5c6476;
+  --accent:    #b97d00;
+  --accent-bg: #fff6df;
+  --green:     #1b8047;
+  --green-bg:  #ecf7f0;
+  --green-bd:  #c9e6d4;
+  --green-dk:  #12552f;
+  --red:       #c23b3b;
+  --blue:      #2d69ad;
+  --blue-bg:   #edf3fb;
+  --purple:    #6f45ad;
+  --font-head: 'Syne', 'Trebuchet MS', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --radius:    10px;
+  color-scheme: light;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── HEADER ──────────────────────────────────────────────── */
+.site-header {
+  background: linear-gradient(135deg, #ffffff 0%, #eef2f8 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 44px 20px 32px;
+  text-align: center;
+}
+.site-header .kicker {
+  display: inline-block;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 3px;
+  margin-bottom: 18px;
+}
+.site-header h1 {
+  font-family: var(--font-head);
+  font-size: clamp(24px, 6vw, 38px);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.site-header .sub {
+  color: var(--text-dim);
+  font-size: 14px;
+  font-weight: 400;
+  max-width: 540px;
+  margin: 0 auto 20px;
+}
+.legende {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 0 auto 22px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+
+/* ── NAV ANCRES ──────────────────────────────────────────── */
+.nav-anchors {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.nav-anchors a {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 14px;
+  text-decoration: none;
+  transition: border-color .15s, color .15s;
+}
+.nav-anchors a:hover, .nav-anchors a:focus-visible { border-color: var(--accent); color: var(--accent); }
+
+/* ── CONTENEUR PRINCIPAL ─────────────────────────────────── */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 36px 18px 80px;
+}
+
+/* ── TITRE DE BLOC ───────────────────────────────────────── */
+.bloc-titre {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 52px 0 6px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.bloc-titre:first-child { margin-top: 0; }
+.bloc-titre .icone { font-size: 26px; flex-shrink: 0; }
+.bloc-titre h2 {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.bloc-titre h2 small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+/* ── MÉMO ────────────────────────────────────────────────── */
+.memo {
+  background: var(--green-bg);
+  border: 1px solid var(--green-bd);
+  border-left: 4px solid var(--green);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin: 16px 0 24px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.memo .memo-titre {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+.memo code {
+  display: block;
+  background: #ffffff;
+  border: 1px solid var(--green-bd);
+  border-radius: 5px;
+  padding: 8px 12px;
+  color: var(--green-dk);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13.5px;
+  margin: 5px 0;
+}
+.memo .note { color: var(--text-dim); font-size: 13px; margin-top: 8px; }
+
+/* ── CARTE EXERCICE ──────────────────────────────────────── */
+.exo-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: border-color .15s;
+}
+.exo-card:hover { border-color: var(--border-hi); }
+
+.exo-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+.exo-header::-webkit-details-marker { display: none; }
+.exo-header:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+.exo-num {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  min-width: 40px;
+}
+.badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 9px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.badge-1 { background: #e9f6ee; color: var(--green); border: 1px solid #bfe2cc; }
+.badge-2 { background: var(--accent-bg); color: #8a5d00; border: 1px solid #efd798; }
+.badge-3 { background: #fbeaea; color: var(--red); border: 1px solid #efc4c4; }
+.badge-exam { background: #f2ecfa; color: var(--purple); border: 1px solid #d9c9ef; }
+
+.exo-titre-txt {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  flex: 1 1 200px;
+  min-width: 0;
+}
+.chevron { color: var(--text-dim); font-size: 13px; flex-shrink: 0; transition: transform .2s; }
+details[open] .chevron { transform: rotate(180deg); }
+
+/* ── CORPS DE L'EXERCICE ─────────────────────────────────── */
+.exo-body { padding: 0 16px 20px; border-top: 1px solid var(--border); }
+
+.contexte {
+  background: var(--blue-bg);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 16px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.contexte strong { color: var(--text); }
+
+.table-wrap { overflow-x: auto; margin: 12px 0; }
+.tableau-donnees {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: var(--surface);
+}
+.tableau-donnees th {
+  background: #eef1f6;
+  color: var(--text-dim);
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.tableau-donnees td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+}
+.tableau-donnees tr:last-child td { border-bottom: none; }
+.tableau-donnees td.num { font-weight: 700; color: var(--text); white-space: nowrap; }
+
+.questions { margin: 18px 0 0; }
+.question { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+.question .q-num {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 11px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.question p { font-size: 14px; margin: 0; min-width: 0; }
+
+/* ── COUP DE POUCE ───────────────────────────────────────── */
+.ordre-grandeur {
+  background: var(--accent-bg);
+  border: 1px solid #efd798;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #6e4b00;
+  margin: 12px 0 0;
+}
+.ordre-grandeur::before { content: "💡 "; }
+
+/* ── BOUTON CORRECTION ───────────────────────────────────── */
+.btn-corrige {
+  background: var(--surface);
+  border: 1px solid var(--border-hi);
+  border-radius: 6px;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 16px;
+  margin-top: 18px;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-corrige:hover, .btn-corrige:focus-visible { border-color: var(--green); color: var(--green); }
+
+/* ── CORRECTION ──────────────────────────────────────────── */
+.correction {
+  display: none;
+  background: var(--green-bg);
+  border: 1px solid var(--green-bd);
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.correction.visible { display: block; }
+.correction .corr-etape {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--green-bd);
+}
+.correction .corr-etape:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.correction .c-num {
+  display: inline-block;
+  background: var(--green);
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 18px;
+  margin-right: 6px;
+}
+.correction code {
+  display: block;
+  background: #ffffff;
+  border: 1px solid var(--green-bd);
+  border-radius: 4px;
+  padding: 6px 12px;
+  color: var(--green-dk);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  margin: 5px 0;
+}
+.correction .res { font-family: var(--font-head); font-weight: 700; color: var(--text); }
+.correction .conclu { margin-top: 8px; font-size: 13.5px; color: #2c6244; font-style: italic; }
+.correction .tableau-corr { width: 100%; border-collapse: collapse; font-size: 13px; margin: 8px 0; background: #ffffff; }
+.correction .tableau-corr th {
+  background: #dff0e6;
+  color: var(--green-dk);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  text-align: left;
+}
+.correction .tableau-corr td { padding: 6px 10px; border-bottom: 1px solid var(--green-bd); color: #24402f; vertical-align: top; }
+.correction .tableau-corr td.val { font-weight: 700; color: var(--green); }
+
+/* ── SÉPARATEUR ──────────────────────────────────────────── */
+hr.section-sep { border: none; border-top: 1px solid var(--border); margin: 54px 0 0; }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 20px;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 12px;
+  background: var(--surface);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 520px) {
+  .exo-titre-txt { font-size: 13.5px; }
+  .contexte { font-size: 13.5px; }
+  .tableau-donnees { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="kicker">⚡ Bloc 1 – BTS CCST 2e année · épreuve E5</div>
+  <h1>Argumenter, traiter les objections<br>et défendre sa marge</h1>
+  <p class="sub">Chapitre 9. 39 exercices en 10 séances, avec l'entreprise VOLTÉO. Ouvre un exercice, réponds sur ton ordinateur, puis vérifie avec la correction.</p>
+  <div class="legende">
+    <span class="badge badge-1">⬆ décollage</span> je découvre
+    <span class="badge badge-2">◆ intermédiaire</span> j'applique
+    <span class="badge badge-exam">★ examen</span> je m'entraîne
+  </div>
+  <nav class="nav-anchors">
+    <a href="#referentiel">0 · Repères</a>
+    <a href="#argument">1 · Construire un argument</a>
+    <a href="#soncase">2 · SONCASE et argumentaire</a>
+    <a href="#cibles">3 · Argumenter face au client</a>
+    <a href="#objections">4 · Reconnaître les objections</a>
+    <a href="#traitement">5 · Répondre aux objections</a>
+    <a href="#prix">6 · Présenter et défendre le prix</a>
+    <a href="#marge">7 · Calculer sa marge</a>
+    <a href="#remises">8 · Réductions et marge</a>
+    <a href="#simulation">9 · L'entretien en entier</a>
+    <a href="#examen">10 · Sujets type examen</a>
+  </nav>
+</header>
+
+<main>
+
+<div class="bloc-titre" id="referentiel">
+  <span class="icone">📌</span>
+  <h2><small>Repères · référentiel BTS CCST</small>Ce que tu travailles dans ce chapitre</h2>
+</div>
+<div class="memo">
+  <div class="memo-titre">🗂 épreuve E5 – bloc 1</div>
+  <code>Compétences : C1.1 préparer une négociation technique et commerciale · C1.2 conseiller, prescrire et communiquer tout au long du processus de négociation · C1.3 gérer le risque affaire et le risque client · C1.4 mettre en œuvre l'entretien de vente technico-commercial.</code>
+  <code>Critères d'évaluation : des outils de négociation adaptés sont préparés · une démarche proactive de négociation est mise en œuvre · une solution technique et commerciale répondant aux besoins du client est proposée · des outils de communication et de négociation adaptés au contexte sont mobilisés · le risque client / affaire est pris en compte.</code>
+  <code>Objectif final : construire ton argumentaire et ta fiche de traitement des objections (annexes de la fiche descriptive), puis mener en 10 minutes la phase argumentation – objections – prix d'un entretien, sans brader ta marge.</code>
+  <code>Le fil rouge : tu es technico-commercial(e) en alternance chez VOLTÉO, entreprise régionale qui vend, installe et entretient des bornes de recharge pour véhicules électriques. Ton tuteur : Marc Delorme, responsable commercial.</code>
+</div>
+<hr class="section-sep">
+
+<!-- BLOC 1 -->
+<div class="bloc-titre" id="argument">
+  <span class="icone">🔌</span>
+  <h2><small>Séance 1</small>Bloc 1 – Qu'est-ce qu'un bon argument ?</h2>
+</div>
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Argument = phrase qui prouve au client que la solution répond à ses besoins et à ses motivations.</code>
+  <code>Méthode CAP : argument = caractéristique + avantage + preuve.</code>
+  <code>Caractéristique = propriété du produit ou du service · technique (puissance, matière, poids, norme) ou commerciale (délai, garantie, marque, service après-vente).</code>
+  <code>Avantage = bénéfice concret pour le client · formule-clé : « pour vous, cela veut dire… ».</code>
+  <code>Preuve = ce qui rend l'avantage crédible : démonstration, essai, témoignage client, résultat de test, fiche technique, étude comparative.</code>
+</div>
+
+<div class="memo">
+  <div class="memo-titre">🗂 l'offre VOLTÉO (à garder sous les yeux pour tout le chapitre)</div>
+  <code>VOLT 7 = borne murale, 1 point de charge 7,4 kW · prix de vente 1 000 € HT.</code>
+  <code>VOLT 22 = borne sur pied, 2 points de charge 22 kW (2 véhicules en même temps) · carrosserie acier, indice de protection IP54 (poussière et projections d'eau) · prise type 2, standard européen · prix de vente 3 750 € HT.</code>
+  <code>VOLT 50 DC = borne de recharge rapide 50 kW · prix de vente 25 000 € HT.</code>
+  <code>Services : installation par des techniciens salariés qualifiés IRVE (1 200 € HT par borne VOLT 22) · délai d'installation 3 semaines · garantie 3 ans pièces et main-d'œuvre · hotline 7 j/7 · logiciel de supervision VOLT Manager (suivi des recharges sur smartphone, gestion de la puissance pour ne pas dépasser l'abonnement électrique) à 15 € HT par mois et par point de charge.</code>
+  <code>Entreprise : 15 ans d'existence, 1 200 bornes installées dans la région.</code>
+</div>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 1</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Technique ou commerciale ?</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Marc Delorme te demande de trier les caractéristiques de la <strong>VOLT 22</strong> avant ton premier rendez-vous. Utilise le mémo de l'offre VOLTÉO.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Classe ces 8 caractéristiques en techniques ou commerciales : 2 points de charge 22 kW · garantie 3 ans · indice IP54 · délai d'installation 3 semaines · prise type 2 · hotline 7 j/7 · carrosserie acier · 1 200 bornes installées.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Trouve une caractéristique supplémentaire dans le mémo et classe-la.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> une caractéristique technique se mesure sur le produit lui-même ; une caractéristique commerciale concerne l'entreprise ou le service autour du produit.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <div class="table-wrap"><table class="tableau-corr"><thead><tr><th>Techniques</th><th>Commerciales</th></tr></thead><tbody><tr><td class="val">2 points de charge 22 kW</td><td class="val">garantie 3 ans</td></tr><tr><td class="val">indice IP54</td><td class="val">délai d'installation 3 semaines</td></tr><tr><td class="val">prise type 2</td><td class="val">hotline 7 j/7</td></tr><tr><td class="val">carrosserie acier</td><td class="val">1 200 bornes installées</td></tr></tbody></table></div></div>
+      <div class="corr-etape"><span class="c-num">2</span> Exemples : gestion de la puissance par VOLT Manager (technique) · techniciens salariés qualifiés IRVE (commerciale).</div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 2</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Reconstituer les arguments</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Les morceaux de 4 arguments ont été mélangés. Reconstitue chaque argument CAP.</div>
+    <div class="table-wrap"><table class="tableau-donnees"><thead><tr><th>Caractéristiques</th><th>Avantages</th><th>Preuves</th></tr></thead><tbody><tr><td>A. 2 points de charge 22 kW</td><td>1. Vos bornes restent en service même par forte pluie.</td><td>a. Démonstration sur la tablette</td></tr><tr><td>B. Indice IP54</td><td>2. Vous suivez chaque recharge depuis votre téléphone.</td><td>b. Fiche technique certifiée</td></tr><tr><td>C. VOLT Manager</td><td>3. Vous rechargez deux véhicules en même temps.</td><td>c. Témoignage de l'hôtel Le Belvédère</td></tr><tr><td>D. Hotline 7 j/7</td><td>4. Un technicien vous répond même le dimanche.</td><td>d. Essai sur le parking de VOLTÉO</td></tr></tbody></table></div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Associe chaque caractéristique à son avantage et à une preuve.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Rédige l'argument A en une phrase complète, avec « pour vous, cela veut dire… ».</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> A – 3 – d · B – 1 – b · C – 2 – a · D – 4 – c. D'autres preuves sont acceptables si elles sont crédibles (par exemple un témoignage pour la hotline).</div>
+      <div class="corr-etape"><span class="c-num">2</span> <p class="res"><em>« La VOLT 22 dispose de deux points de charge de 22 kW : pour vous, cela veut dire que deux utilitaires se rechargent en même temps. Je vous propose de l'essayer sur notre parking. »</em></p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 3</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Rédiger trois arguments pour Transports Morel</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte"><strong>Transports Morel</strong> est une PME de transport et de livraison de 60 salariés. Elle remplace ses utilitaires diesel par <strong>12 utilitaires électriques</strong> qui doivent être rechargés la nuit au dépôt. Interlocuteurs : Karine Morel, dirigeante, et Julien Faure, responsable du parc de véhicules. C'est un prospect.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Choisis 3 caractéristiques de l'offre VOLTÉO utiles pour ce prospect.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Rédige 3 arguments CAP complets, au présent.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Lis-les à ton voisin : il lève la main dès qu'il manque la preuve.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> pense à ce qui inquiète un transporteur : des véhicules qui ne sont pas rechargés le matin, une facture d'électricité qui explose.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Caractéristiques pertinentes : 2 points de charge par borne · gestion de la puissance VOLT Manager · hotline 7 j/7 · garantie 3 ans.</div>
+      <div class="corr-etape"><span class="c-num">2</span> Exemples : <em>« Chaque VOLT 22 recharge deux utilitaires en même temps : pour vous, cela veut dire 6 bornes suffisent pour vos 12 véhicules, comme le montre la fiche technique. »</em> · <em>« VOLT Manager répartit la puissance entre les bornes : vous ne dépassez pas votre abonnement électrique. Je vous montre l'écran d'un client. »</em> · <em>« Notre hotline répond 7 j/7 : un véhicule bloqué le samedi est pris en charge le jour même, demandez à l'hôtel Le Belvédère. »</em></div>
+      <div class="corr-etape"><span class="c-num">3</span> <p class="conclu">Un argument sans preuve reste une affirmation. Les preuves alimentent le critère « des outils de communication et de négociation adaptés au contexte sont mobilisés ».</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 4</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Ton argument en 30 secondes</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Reviens à ta situation de négociation (celle de ta fiche descriptive E5).</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Choisis la caractéristique la plus forte de ton produit ou service.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Transforme-la en argument CAP adapté à ton client.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Dis-le à l'oral en 30 secondes maximum, face au groupe. Le chronomètre est projeté.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Attendus : une caractéristique précise et chiffrée si possible, pas une généralité (« c'est de la qualité »).</div>
+      <div class="corr-etape"><span class="c-num">2</span> L'avantage parle du client (« vous »), pas du produit. La preuve est disponible le jour de l'entretien.</div>
+      <div class="corr-etape"><span class="c-num">3</span> <p class="conclu">Cet argument peut devenir la première ligne de l'argumentaire placé en annexe de ta fiche descriptive.</p></div>
+    </div>
+  </div>
+</details>
+<hr class="section-sep">
+
+<!-- BLOC 2 -->
+<div class="bloc-titre" id="soncase" style="margin-top:40px">
+  <span class="icone">🧠</span>
+  <h2><small>Séance 2</small>Bloc 2 – SONCASE et argumentaire de vente</h2>
+</div>
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>SONCASE = les 7 motivations d'achat du client.</code>
+  <code>Sécurité = robustesse, solidité, fiabilité, garantie · Orgueil = haut de gamme, exclusivité, image · Nouveauté = innovation, technologie récente.</code>
+  <code>Confort = simplicité, facilité d'utilisation, gain de temps · Argent = économie, rentabilité, rapport qualité-prix.</code>
+  <code>Sympathie = relation chaleureuse, proximité, plaisir · Environnement = écologie, économie d'énergie, préservation de la planète.</code>
+  <code>Argumentaire de vente = tableau qui regroupe tous les arguments : caractéristiques · avantages · preuves · SONCASE.</code>
+</div>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 5</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Quel mobile SONCASE se cache derrière la phrase ?</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Voici des phrases notées par Marc Delorme pendant ses rendez-vous. Jeu en équipe : la première équipe qui donne la bonne lettre marque un point.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p><em>« Je veux être sûr que ça ne tombe pas en panne. »</em></p></div>
+      <div class="question"><span class="q-num">2</span><p><em>« Nos clients doivent voir qu'on est un hôtel haut de gamme. »</em></p></div>
+      <div class="question"><span class="q-num">3</span><p><em>« Il y a une application pour suivre la charge ? »</em></p></div>
+      <div class="question"><span class="q-num">4</span><p><em>« Mes chauffeurs ne doivent rien avoir à gérer. »</em></p></div>
+      <div class="question"><span class="q-num">5</span><p><em>« Combien je vais économiser par rapport au diesel ? »</em></p></div>
+      <div class="question"><span class="q-num">6</span><p><em>« On aime travailler avec des entreprises du coin, qu'on connaît. »</em></p></div>
+      <div class="question"><span class="q-num">7</span><p><em>« La commune s'est engagée à réduire ses émissions de CO2. »</em></p></div>
+      <div class="question"><span class="q-num">8</span><p><em>« Qui intervient si la borne est en défaut un dimanche ? »</em></p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Sécurité.</div>
+      <div class="corr-etape"><span class="c-num">2</span> Orgueil.</div>
+      <div class="corr-etape"><span class="c-num">3</span> Nouveauté.</div>
+      <div class="corr-etape"><span class="c-num">4</span> Confort.</div>
+      <div class="corr-etape"><span class="c-num">5</span> Argent.</div>
+      <div class="corr-etape"><span class="c-num">6</span> Sympathie.</div>
+      <div class="corr-etape"><span class="c-num">7</span> Environnement.</div>
+      <div class="corr-etape"><span class="c-num">8</span> Sécurité. <p class="conclu">Repérer le mobile pendant la découverte permet de choisir ensuite les bons arguments.</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 6</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Compléter l'argumentaire de la VOLT 22</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Marc Delorme veut un argumentaire commun à toute l'équipe commerciale. Reproduis ce tableau dans un document sur ton ordinateur et complète-le.</div>
+    <div class="table-wrap"><table class="tableau-donnees"><thead><tr><th>Caractéristiques</th><th>Avantages</th><th>Preuves</th><th>SONCASE</th></tr></thead><tbody><tr><td>2 points de charge 22 kW</td><td>?</td><td>?</td><td>?</td></tr><tr><td>Indice IP54, carrosserie acier</td><td>?</td><td>?</td><td>?</td></tr><tr><td>Garantie 3 ans pièces et main-d'œuvre</td><td>?</td><td>?</td><td>?</td></tr><tr><td>VOLT Manager</td><td>?</td><td>?</td><td>?</td></tr><tr><td>Techniciens salariés qualifiés IRVE</td><td>?</td><td>?</td><td>?</td></tr><tr><td>15 ans, 1 200 bornes dans la région</td><td>?</td><td>?</td><td>?</td></tr></tbody></table></div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Complète les colonnes avantages, preuves et SONCASE (1 ou 2 mobiles par ligne).</p></div>
+      <div class="question"><span class="q-num">2</span><p>Ajoute une ligne sur un argument « environnement ».</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <div class="table-wrap"><table class="tableau-corr"><thead><tr><th>Caractéristiques</th><th>Avantages</th><th>Preuves</th><th>SONCASE</th></tr></thead><tbody><tr><td>2 points 22 kW</td><td class="val">2 véhicules rechargés en même temps, moins de bornes à acheter</td><td class="val">fiche technique, essai</td><td class="val">confort, argent</td></tr><tr><td>IP54, acier</td><td class="val">fonctionne dehors, par tous les temps</td><td class="val">fiche technique certifiée</td><td class="val">sécurité</td></tr><tr><td>Garantie 3 ans</td><td class="val">aucun frais de réparation pendant 3 ans</td><td class="val">contrat de garantie</td><td class="val">sécurité, argent</td></tr><tr><td>VOLT Manager</td><td class="val">suivi des recharges sur smartphone, abonnement électrique non dépassé</td><td class="val">démonstration</td><td class="val">nouveauté, argent</td></tr><tr><td>Techniciens IRVE</td><td class="val">installation conforme et sûre, un seul interlocuteur</td><td class="val">attestations de qualification</td><td class="val">sécurité, sympathie</td></tr><tr><td>15 ans, 1 200 bornes</td><td class="val">un partenaire expérimenté et proche de vous</td><td class="val">liste de références, témoignages</td><td class="val">sécurité, sympathie</td></tr></tbody></table></div></div>
+      <div class="corr-etape"><span class="c-num">2</span> Exemple : véhicules électriques rechargés sur site · moins d'émissions locales que le diesel, image d'entreprise engagée · suivi des consommations dans VOLT Manager · environnement, orgueil.</div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 7</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Le profil SONCASE de chaque interlocuteur</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Ton portefeuille compte 3 comptes en cours.</div>
+    <div class="table-wrap"><table class="tableau-donnees"><thead><tr><th>Compte</th><th>Interlocuteur</th><th>Ce qu'il a dit en découverte</th></tr></thead><tbody><tr><td>Transports Morel (prospect, PME)</td><td>Karine Morel, dirigeante</td><td><em>« Je veux savoir quand l'investissement sera remboursé. Et mes camions doivent partir à 6 h. »</em></td></tr><tr><td>Transports Morel</td><td>Julien Faure, responsable du parc</td><td><em>« J'aimerais suivre les recharges sans passer ma journée au dépôt. »</em></td></tr><tr><td>Mairie de Saint-Aubin (prospect, B to G)</td><td>Nadia Benali, directrice des services techniques</td><td><em>« Le conseil municipal veut des bornes pour les habitants. Elles doivent être sûres et tenir dans le temps. »</em></td></tr><tr><td>Hôtel Le Belvédère (client depuis 1 an, 2 VOLT 7 installées)</td><td>Thomas Leroy, directeur</td><td><em>« Nos clients arrivent en voitures électriques haut de gamme. Il faut être au niveau de nos 4 étoiles. »</em></td></tr></tbody></table></div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Identifie les 2 mobiles SONCASE dominants de chaque interlocuteur.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Pour chacun, choisis dans l'argumentaire de l'Ex. 6 l'argument que tu places en premier.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <div class="table-wrap"><table class="tableau-corr"><thead><tr><th>Interlocuteur</th><th>SONCASE</th><th>Premier argument</th></tr></thead><tbody><tr><td>Karine Morel</td><td class="val">argent, sécurité</td><td class="val">2 véhicules par borne, garantie 3 ans</td></tr><tr><td>Julien Faure</td><td class="val">confort, nouveauté</td><td class="val">VOLT Manager sur smartphone</td></tr><tr><td>Nadia Benali</td><td class="val">sécurité, environnement</td><td class="val">IP54 acier, techniciens IRVE</td></tr><tr><td>Thomas Leroy</td><td class="val">orgueil, confort</td><td class="val">charge de qualité pour une clientèle exigeante, service 7 j/7</td></tr></tbody></table></div></div>
+      <div class="corr-etape"><span class="c-num">2</span> <p class="conclu">Deux interlocuteurs d'un même client n'ont pas les mêmes motivations : tu adaptes l'ordre des arguments à la personne en face de toi.</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 8</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">L'argumentaire de ta fiche descriptive</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">L'argumentaire entreprise et produit fait partie des annexes conseillées pour la fiche descriptive E5.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Construis sur ton ordinateur l'argumentaire de ta situation : au moins 5 lignes (caractéristiques, avantages, preuves, SONCASE), dont 2 sur ton entreprise.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Projette-le : le groupe a 2 minutes pour repérer une preuve absente ou faible.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Attendus : des caractéristiques techniques et commerciales · des avantages formulés pour ce client · des preuves réelles et disponibles · des mobiles cohérents avec ce que tu sais de ton interlocuteur.</div>
+      <div class="corr-etape"><span class="c-num">2</span> <p class="conclu">Critère évalué : « des outils de négociation adaptés sont préparés ». La commission peut te demander d'où vient chaque preuve.</p></div>
+    </div>
+  </div>
+</details>
+<hr class="section-sep">
+
+<!-- BLOC 3 -->
+<div class="bloc-titre" id="cibles" style="margin-top:40px">
+  <span class="icone">🎯</span>
+  <h2><small>Séance 3</small>Bloc 3 – Argumenter face au client</h2>
+</div>
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Sélectionner : ne jamais réciter tout l'argumentaire · garder 3 ou 4 arguments adaptés au type de client (B to B, B to C, B to G), à ses besoins et à son profil SONCASE.</code>
+  <code>Comportement positif : présent ou futur, pas de conditionnel · pas de formulation négative · propos clairs, précis, chiffrés.</code>
+  <code>Contrôler : après un argument, questions de contrôle · « Cette solution vous convient-elle ? » · « Qu'en pensez-vous ? » · « Sommes-nous d'accord ? ».</code>
+  <code>Argumentaire comparatif = met en avant les éléments qui différencient ton offre de celle du concurrent, sans le dénigrer.</code>
+</div>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 9</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Chasse aux formulations négatives</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Ton tuteur a enregistré tes phrases lors d'un rendez-vous. Il en a relevé 5 à reformuler.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p><em>« Vous n'aurez pas de problème avec cette borne. »</em></p></div>
+      <div class="question"><span class="q-num">2</span><p><em>« Ce ne serait pas très cher. »</em></p></div>
+      <div class="question"><span class="q-num">3</span><p><em>« Si vous preniez la supervision, vous pourriez peut-être suivre vos recharges. »</em></p></div>
+      <div class="question"><span class="q-num">4</span><p><em>« Je ne vais pas vous déranger longtemps. »</em></p></div>
+      <div class="question"><span class="q-num">5</span><p><em>« Vous ne le regretterez pas. »</em></p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> supprime « ne… pas », « problème », « peut-être » et le conditionnel.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <em>« Cette borne vous garantit des recharges fiables, par tous les temps. »</em></div>
+      <div class="corr-etape"><span class="c-num">2</span> <em>« Cette solution représente un investissement de 3 750 € HT par borne. »</em></div>
+      <div class="corr-etape"><span class="c-num">3</span> <em>« Avec VOLT Manager, vous suivez chaque recharge depuis votre téléphone. »</em></div>
+      <div class="corr-etape"><span class="c-num">4</span> <em>« Je vous propose 15 minutes pour faire le point sur vos besoins. »</em></div>
+      <div class="corr-etape"><span class="c-num">5</span> <em>« Vous serez satisfait de ce choix, comme nos 1 200 clients équipés. »</em></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 10</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">L'argumentaire comparatif face à BornExpress</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Karine Morel a reçu un devis du concurrent <strong>BornExpress</strong>, une enseigne nationale.</div>
+    <div class="table-wrap"><table class="tableau-donnees"><thead><tr><th>Critère</th><th>VOLTÉO VOLT 22</th><th>BornExpress Duo 22</th></tr></thead><tbody><tr><td>Prix de la borne HT</td><td>3 750 €</td><td>3 300 €</td></tr><tr><td>Points de charge</td><td>2 × 22 kW</td><td>2 × 22 kW</td></tr><tr><td>Installation</td><td>techniciens salariés IRVE</td><td>sous-traitée</td></tr><tr><td>Délai d'installation</td><td>3 semaines</td><td>8 semaines</td></tr><tr><td>Garantie</td><td>3 ans</td><td>2 ans</td></tr><tr><td>Assistance</td><td>hotline 7 j/7</td><td>du lundi au vendredi</td></tr><tr><td>Gestion de la puissance</td><td>incluse dans VOLT Manager</td><td>option à 900 € HT</td></tr></tbody></table></div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Repère les éléments sur lesquels VOLTÉO est moins bien placé, à égalité ou mieux placé.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Rédige 3 arguments comparatifs sans dénigrer BornExpress.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Formule la question de contrôle qui suit ces arguments.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Moins bien placé : prix de la borne · à égalité : puissance · mieux placé : installation, délai, garantie, assistance, gestion de la puissance incluse.</div>
+      <div class="corr-etape"><span class="c-num">2</span> Exemples : <em>« Nos bornes sont posées en 3 semaines par nos propres techniciens : vos utilitaires roulent dès le mois prochain. »</em> · <em>« La garantie couvre 3 ans, soit une année de plus sans frais. »</em> · <em>« La gestion de la puissance est incluse : vous n'avez pas d'option à ajouter. »</em></div>
+      <div class="corr-etape"><span class="c-num">3</span> <em>« Ces éléments correspondent-ils à ce que vous attendez de votre installation ? »</em> <p class="conclu">Ne jamais critiquer le concurrent : on valorise ses propres points forts.</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 11</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Trois clients, trois sélections</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Tu as trois rendez-vous cette semaine : Karine Morel (Transports Morel), Nadia Benali (Mairie de Saint-Aubin) et Thomas Leroy (Hôtel Le Belvédère, qui envisage 3 VOLT 22 en plus de ses 2 VOLT 7).</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Pour chaque rendez-vous, sélectionne les 3 arguments à présenter, dans l'ordre.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Explique en une phrase pourquoi tu ne présentes pas les mêmes arguments à la mairie et à l'hôtel.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <div class="table-wrap"><table class="tableau-corr"><thead><tr><th>Client</th><th>Arguments, dans l'ordre</th></tr></thead><tbody><tr><td>Transports Morel</td><td class="val">2 véhicules par borne (argent) · gestion de la puissance (argent) · hotline 7 j/7 (sécurité)</td></tr><tr><td>Mairie de Saint-Aubin</td><td class="val">IP54 acier (sécurité) · techniciens IRVE (sécurité) · réduction des émissions (environnement)</td></tr><tr><td>Hôtel Le Belvédère</td><td class="val">service haut de gamme pour ses clients (orgueil) · continuité avec ses VOLT 7 (sympathie, confort) · hotline 7 j/7 (sécurité)</td></tr></tbody></table></div></div>
+      <div class="corr-etape"><span class="c-num">2</span> La mairie est un client B to G qui rend des comptes au conseil municipal et aux habitants (sécurité, environnement) ; l'hôtel cherche à valoriser son image auprès de sa clientèle (orgueil).</div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 12</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Argument express en binôme</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Jeu de rôle de 2 minutes par binôme. Un étudiant joue Karine Morel, l'autre le technico-commercial. Le groupe observe.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Le vendeur présente 3 arguments CAP, puis pose une question de contrôle.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Les observateurs comptent les formulations négatives et les conditionnels. Moins il y en a, plus le binôme marque de points.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Refais l'exercice avec le produit de ta fiche descriptive.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Attendus : arguments sélectionnés pour ce client · vocabulaire précis et chiffré · « vous » plutôt que « nous » · regard et ton assurés.</div>
+      <div class="corr-etape"><span class="c-num">2</span> La question de contrôle doit être fermée ou semi-fermée et attendre une réponse : on se tait après l'avoir posée.</div>
+      <div class="corr-etape"><span class="c-num">3</span> <p class="conclu">Critère évalué en situation 2 : « une démarche proactive de négociation est mise en œuvre ».</p></div>
+    </div>
+  </div>
+</details>
+<hr class="section-sep">
+
+<!-- BLOC 4 -->
+<div class="bloc-titre" id="objections" style="margin-top:40px">
+  <span class="icone">🛑</span>
+  <h2><small>Séance 4</small>Bloc 4 – Reconnaître les objections</h2>
+</div>
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Objection = critique ou demande d'information du client qui fait obstacle à la solution proposée · c'est souvent une hésitation, une incompréhension ou une crainte · un tremplin vers la conclusion, pas une agression.</code>
+  <code>Objection fondée = sincère et justifiée : la solution ne répond pas à un besoin · objection non fondée = sincère mais injustifiée : manque d'information ou incompréhension · objection prétexte = pas justifiée, sert à éviter l'achat ou à écourter l'entretien.</code>
+  <code>Anticiper = lister à l'avance les objections probables (points faibles de l'offre, du client, des concurrents) et préparer une réponse pour chacune : c'est la fiche de traitement des objections.</code>
+  <code>Les 4 étapes : 1. approuver (laisser parler, montrer qu'on comprend) · 2. comprendre (questionner) · 3. répondre · 4. contrôler.</code>
+  <code>À éviter : « Vous avez tort », « C'est faux » · à utiliser : « Vous avez raison », « Je vous comprends très bien », « Vous faites bien d'attirer mon attention sur… ».</code>
+  <code>Questions pour comprendre : « C'est-à-dire ? » · « Pouvez-vous m'en dire plus ? » · « Par rapport à quoi ? ».</code>
+</div>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 13</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Fondée, non fondée ou prétexte ?</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Voici les objections entendues par l'équipe VOLTÉO le mois dernier. Vote à main levée pour chacune avant de regarder la correction.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p><em>« Votre borne est plus chère que celle de BornExpress. »</em></p></div>
+      <div class="question"><span class="q-num">2</span><p><em>« Je n'ai pas le temps. »</em></p></div>
+      <div class="question"><span class="q-num">3</span><p><em>« Vos bornes ne seront pas compatibles avec nos utilitaires. »</em></p></div>
+      <div class="question"><span class="q-num">4</span><p><em>« Je ne connais pas votre entreprise. »</em></p></div>
+      <div class="question"><span class="q-num">5</span><p><em>« Repassez dans six mois. »</em></p></div>
+      <div class="question"><span class="q-num">6</span><p><em>« Avec votre application, nos données vont être piratées. »</em></p></div>
+      <div class="question"><span class="q-num">7</span><p><em>« La VOLT 50 DC dépasse notre budget de 20 000 € HT. »</em></p></div>
+      <div class="question"><span class="q-num">8</span><p><em>« On verra plus tard. »</em></p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Fondée : 3 750 € HT contre 3 300 € HT.</div>
+      <div class="corr-etape"><span class="c-num">2</span> Prétexte.</div>
+      <div class="corr-etape"><span class="c-num">3</span> Non fondée : la prise type 2 est le standard européen.</div>
+      <div class="corr-etape"><span class="c-num">4</span> Non fondée : manque d'information (15 ans, 1 200 bornes).</div>
+      <div class="corr-etape"><span class="c-num">5</span> Prétexte.</div>
+      <div class="corr-etape"><span class="c-num">6</span> Non fondée : une crainte, à traiter par l'information.</div>
+      <div class="corr-etape"><span class="c-num">7</span> Fondée : 25 000 € HT &gt; 20 000 € HT.</div>
+      <div class="corr-etape"><span class="c-num">8</span> Prétexte. <p class="conclu">Le type d'objection oriente la réponse : on ne traite pas une crainte comme un vrai défaut de l'offre.</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 14</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Approuver sans se vexer</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Thomas Leroy vient de dire : <em>« Vos bornes, c'est bien, mais votre technicien est arrivé en retard l'an dernier. »</em></div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Trie ces réponses en « à éviter » et « à utiliser » : <em>« Ce n'est pas possible. »</em> · <em>« Je comprends votre agacement. »</em> · <em>« Ça n'a rien à voir avec les bornes. »</em> · <em>« Vous faites bien de me le signaler. »</em> · <em>« Mais non, pas du tout. »</em> · <em>« Vous avez raison, c'est important pour un hôtel. »</em></p></div>
+      <div class="question"><span class="q-num">2</span><p>Enchaîne avec une question pour comprendre l'objection.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> À éviter : « Ce n'est pas possible. » · « Ça n'a rien à voir avec les bornes. » · « Mais non, pas du tout. » À utiliser : « Je comprends votre agacement. » · « Vous faites bien de me le signaler. » · « Vous avez raison, c'est important pour un hôtel. »</div>
+      <div class="corr-etape"><span class="c-num">2</span> <em>« Pouvez-vous m'en dire plus ? Quelles ont été les conséquences pour vos clients ? »</em></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 15</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Transformer l'objection en question</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Comprendre l'objection, c'est amener le client à préciser ce qu'il veut dire. Une objection floue devient alors une demande d'information.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Rédige la question que tu poses après chaque objection : <em>« C'est trop cher. »</em> · <em>« Ça a l'air compliqué. »</em> · <em>« Votre délai ne me convient pas. »</em> · <em>« Je ne suis pas sûr que ce soit assez solide. »</em></p></div>
+      <div class="question"><span class="q-num">2</span><p>Pour chacune, imagine la réponse du client et la vraie demande qui se cache derrière.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <em>« Par rapport à quoi trouvez-vous le prix élevé ? »</em> · <em>« Qu'est-ce qui vous semble compliqué ? »</em> · <em>« Quelle date avez-vous en tête ? »</em> · <em>« Qu'est-ce qui vous fait douter de la solidité ? »</em></div>
+      <div class="corr-etape"><span class="c-num">2</span> Exemples : « par rapport à BornExpress » → demande de comparaison · « mes chauffeurs ne savent pas utiliser une appli » → demande de formation · « livraison des véhicules le 1er du mois » → demande d'un calendrier · « le parking est ouvert au public » → demande de preuve de résistance.</div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 16</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Les objections de ta situation</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">La fiche de traitement des objections prévisibles est une annexe conseillée de la fiche descriptive E5.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Liste les 5 objections les plus probables de ton client ou prospect.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Classe-les : fondée, non fondée, prétexte.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Ton voisin joue ton client et te lance une de ces objections : approuve et pose une question pour comprendre, en 30 secondes.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Pistes : pars des points faibles de ton offre (prix, délai, gamme), du client (budget, habitudes, fournisseur actuel) et des concurrents (offre moins chère, plus connue).</div>
+      <div class="corr-etape"><span class="c-num">2</span> Une objection fondée appelle une compensation ou une adaptation de l'offre ; une non fondée appelle de l'information ou une preuve.</div>
+      <div class="corr-etape"><span class="c-num">3</span> <p class="conclu">Tu complèteras cette liste avec les techniques de réponse à la séance 5.</p></div>
+    </div>
+  </div>
+</details>
+<hr class="section-sep">
+
+<!-- BLOC 5 -->
+<div class="bloc-titre" id="traitement" style="margin-top:40px">
+  <span class="icone">🛡️</span>
+  <h2><small>Séance 5</small>Bloc 5 – Répondre aux objections</h2>
+</div>
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Compensation = on reconnaît le point faible de l'offre puis on met en avant un autre avantage qui le contrebalance · pour une objection fondée.</code>
+  <code>Boomerang = on s'appuie sur ce que le client vient de dire pour en faire un argument.</code>
+  <code>Reformulation interrogative = on reprend l'objection sous forme de question pour que le client approfondisse.</code>
+  <code>Information = on apporte le complément d'information qui manque · pour une objection non fondée mais sincère.</code>
+  <code>Témoignage = on cite un client crédible qui a fait le même choix.</code>
+  <code>Réfutation = on ignore l'objection ou on reporte la réponse · à utiliser avec modération, elle peut agacer.</code>
+  <code>Contrôler l'effet : « Ai-je bien répondu à votre question ? » · « Qu'en pensez-vous ? » · sans contrôle, l'objection revient.</code>
+  <code>Attitude : calme, positif, ne jamais répondre trop vite ni contredire.</code>
+</div>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 17</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Quelle technique a-t-il utilisée ?</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Marc Delorme a répondu à 6 objections. Identifie la technique.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p><em>« Je suis satisfait de mon électricien. »</em> → <em>« C'est justement pour ça que je vous propose de comparer son devis avec le nôtre, sans engagement. »</em></p></div>
+      <div class="question"><span class="q-num">2</span><p><em>« Vous n'avez pas de borne murale en 22 kW. »</em> → <em>« C'est exact, notre 22 kW est sur pied ; en revanche, elle recharge deux véhicules en même temps. »</em></p></div>
+      <div class="question"><span class="q-num">3</span><p><em>« Ça ne m'intéresse pas. »</em> → <em>« Puis-je vous demander ce qui ne vous intéresse pas ? »</em></p></div>
+      <div class="question"><span class="q-num">4</span><p><em>« Je ne vois pas à quoi sert la supervision. »</em> → <em>« Regardez l'écran d'un de nos clients : vous voyez la consommation de chaque véhicule. »</em></p></div>
+      <div class="question"><span class="q-num">5</span><p><em>« Votre entreprise n'est pas connue. »</em> → <em>« L'hôtel Le Belvédère est équipé depuis un an, M. Leroy accepte d'en parler avec vous. »</em></p></div>
+      <div class="question"><span class="q-num">6</span><p><em>« Je veux la borne en blanc. »</em> → <em>« Nous verrons les coloris à la fin ; je vous montre d'abord la puissance de charge. »</em></p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Boomerang.</div>
+      <div class="corr-etape"><span class="c-num">2</span> Compensation.</div>
+      <div class="corr-etape"><span class="c-num">3</span> Reformulation interrogative.</div>
+      <div class="corr-etape"><span class="c-num">4</span> Information.</div>
+      <div class="corr-etape"><span class="c-num">5</span> Témoignage.</div>
+      <div class="corr-etape"><span class="c-num">6</span> Réfutation (report de la réponse).</div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 18</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Répondre avec la technique imposée</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Le professeur projette une objection et tire au sort une technique. Tu as 1 minute pour écrire ta réponse, puis tu la lis.</div>
+    <div class="table-wrap"><table class="tableau-donnees"><thead><tr><th>Objection</th><th>Technique imposée</th></tr></thead><tbody><tr><td>A. <em>« BornExpress est moins cher. »</em> (Karine Morel)</td><td>compensation</td></tr><tr><td>B. <em>« J'ai déjà un fournisseur. »</em> (Nadia Benali)</td><td>boomerang</td></tr><tr><td>C. <em>« Vos bornes ne seront pas compatibles avec nos utilitaires. »</em> (Julien Faure)</td><td>information</td></tr><tr><td>D. <em>« Une borne sur pied, ça va abîmer l'entrée de l'hôtel. »</em> (Thomas Leroy)</td><td>témoignage</td></tr><tr><td>E. <em>« Je ne suis pas convaincue. »</em> (Karine Morel)</td><td>reformulation interrogative</td></tr></tbody></table></div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Rédige une réponse pour chaque objection, avec la technique imposée.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Termine chaque réponse par une question de contrôle.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Exemples : A. <em>« C'est vrai, notre borne coûte 450 € de plus ; en revanche, la gestion de la puissance est incluse, alors qu'elle coûte 900 € en option chez eux. »</em> · B. <em>« C'est justement parce que vous avez un fournisseur que vous pouvez comparer nos deux propositions. »</em> · C. <em>« Nos bornes sont équipées de la prise type 2, le standard européen : vos utilitaires se branchent directement. »</em> · D. <em>« Le Grand Hôtel des Pins a installé la même borne devant son entrée ; je vous envoie les photos et le contact de sa directrice. »</em> · E. <em>« Qu'est-ce qui vous fait encore hésiter ? »</em></div>
+      <div class="corr-etape"><span class="c-num">2</span> <em>« Ai-je répondu à votre question ? »</em> · <em>« Cela vous rassure-t-il ? »</em> · <em>« Qu'en pensez-vous ? »</em></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 19</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">La fiche de traitement des objections VOLTÉO</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Marc Delorme te confie la mise à jour de l'outil de l'équipe pour le rendez-vous chez Transports Morel.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Crée un tableau de 5 colonnes : objection · type · technique · réponse · question de contrôle.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Remplis-le pour 4 objections probables de Karine Morel ou Julien Faure.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <div class="table-wrap"><table class="tableau-corr"><thead><tr><th>Objection</th><th>Type</th><th>Technique</th><th>Réponse</th><th>Contrôle</th></tr></thead><tbody><tr><td>Plus cher que BornExpress</td><td class="val">fondée</td><td class="val">compensation</td><td class="val">gestion de la puissance incluse, garantie 3 ans</td><td class="val">« Qu'en pensez-vous ? »</td></tr><tr><td>Données piratées</td><td class="val">non fondée</td><td class="val">information</td><td class="val">accès sécurisé par identifiant, données hébergées par VOLTÉO</td><td class="val">« Cela vous rassure-t-il ? »</td></tr><tr><td>Chauffeurs pas formés</td><td class="val">non fondée</td><td class="val">information</td><td class="val">prise en main de 30 minutes par le technicien à la mise en service</td><td class="val">« Cela vous convient-il ? »</td></tr><tr><td>Pas le temps</td><td class="val">prétexte</td><td class="val">reformulation interrogative</td><td class="val">« Qu'est-ce qui vous occupe le plus en ce moment ? »</td><td class="val">« Pouvons-nous fixer 15 minutes jeudi ? »</td></tr></tbody></table></div></div>
+      <div class="corr-etape"><span class="c-num">2</span> <p class="conclu">Les réponses doivent s'appuyer sur des éléments réels de l'offre. Dans ta fiche descriptive, n'invente jamais un service que ton entreprise ne propose pas : la commission vérifie.</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 20</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Le feu des objections</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Jeu de rôle de 3 minutes chronométrées. Un étudiant joue son propre client (fiche descriptive) et lance une objection toutes les 30 secondes. Le vendeur répond en suivant les 4 étapes.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Le vendeur traite le plus d'objections possible, sans perdre son calme.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Les observateurs notent pour chaque objection : approuvée ? comprise ? technique ? contrôlée ?</p></div>
+      <div class="question"><span class="q-num">3</span><p>On inverse les rôles.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Attendus : pas de précipitation, une phrase d'approbation, une question pour comprendre, une réponse adaptée au type d'objection.</div>
+      <div class="corr-etape"><span class="c-num">2</span> L'erreur la plus fréquente : oublier le contrôle. L'objection revient alors plus tard dans l'entretien.</div>
+      <div class="corr-etape"><span class="c-num">3</span> <p class="conclu">En situation 2 de l'épreuve E5, la commission joue souvent un client qui objecte : ce traitement fait partie de la compétence C1.4.</p></div>
+    </div>
+  </div>
+</details>
+<hr class="section-sep">
+
+<!-- BLOC 6 -->
+<div class="bloc-titre" id="prix" style="margin-top:40px">
+  <span class="icone">🏷️</span>
+  <h2><small>Séance 6</small>Bloc 6 – Présenter et défendre le prix</h2>
+</div>
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Quand ? Le prix arrive quand le client n'a plus de question et a validé la solution par une question de contrôle.</code>
+  <code>Technique du sandwich = un avantage · le prix · un autre avantage · technique de la boule de neige = le prix d'abord, puis 2 ou 3 avantages importants.</code>
+  <code>Objection prix = le plus souvent : « c'est trop cher », « vos concurrents sont mieux placés », « ça dépasse mon budget ».</code>
+  <code>Pourquoi défendre son prix ? Préserver la marge et la rentabilité de l'entreprise · garantir sa rémunération s'il y a une commission · ne pas dévaloriser le produit · rester crédible (le prix n'était pas gonflé).</code>
+  <code>Les 4 étapes : 1. isoler le prix (« À part le prix, cette solution vous convient-elle ? ») · 2. comprendre (« Par rapport à quoi ? ») · 3. justifier · 4. accepter une concession seulement si nécessaire, avec contrepartie.</code>
+  <code>Justifier : addition = additionner les avantages · soustraction = ce que le client perd s'il n'achète pas · multiplication = avantage × durée d'utilisation · division = prix ÷ durée ou quantité · positionnement = le prix reflète le haut de gamme.</code>
+</div>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 21</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Sandwich ou boule de neige ?</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Deux technico-commerciaux de VOLTÉO annoncent le prix de la VOLT 22.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Identifie la technique : a) <em>« Pour 3 750 € HT, la VOLT 22 recharge deux véhicules en même temps, se pilote depuis votre téléphone et elle est garantie 3 ans. »</em> b) <em>« La VOLT 22 recharge deux véhicules en même temps. Elle est proposée à 3 750 € HT. Et la garantie de 3 ans couvre pièces et main-d'œuvre. »</em></p></div>
+      <div class="question"><span class="q-num">2</span><p>Annonce le prix de la VOLT 50 DC à Thomas Leroy avec la technique du sandwich.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> a) boule de neige · b) sandwich.</div>
+      <div class="corr-etape"><span class="c-num">2</span> <em>« La VOLT 50 DC recharge une voiture en moins d'une heure pendant le déjeuner de vos clients. Elle est proposée à 25 000 € HT. Et vous serez l'un des seuls hôtels de la région à offrir ce service. »</em> <p class="conclu">Le prix n'est jamais annoncé seul : il est toujours encadré par des avantages adaptés au client (ici orgueil et confort).</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 22</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Les cinq façons de justifier un prix</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Retrouve la technique de justification utilisée.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p><em>« Vous avez la borne, la pose par nos techniciens, la garantie 3 ans et la hotline 7 j/7. »</em></p></div>
+      <div class="question"><span class="q-num">2</span><p><em>« Sur 5 ans, la VOLT 22 vous revient à environ 2 € par jour. »</em></p></div>
+      <div class="question"><span class="q-num">3</span><p><em>« Sans bornes au dépôt, vos chauffeurs perdent une heure par jour à chercher une recharge publique. »</em></p></div>
+      <div class="question"><span class="q-num">4</span><p><em>« Vous économisez 1 650 € par mois, soit 19 800 € par an. »</em></p></div>
+      <div class="question"><span class="q-num">5</span><p><em>« Le prix correspond à une installation de qualité professionnelle, pas à une borne grand public. »</em></p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Addition.</div>
+      <div class="corr-etape"><span class="c-num">2</span> Division. <code>3 750 / (5 × 365) = 2,05 € par jour</code></div>
+      <div class="corr-etape"><span class="c-num">3</span> Soustraction.</div>
+      <div class="corr-etape"><span class="c-num">4</span> Multiplication. <code>1 650 × 12 = 19 800 €</code></div>
+      <div class="corr-etape"><span class="c-num">5</span> Positionnement.</div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 23</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Chiffrer la proposition pour Transports Morel</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Pour ses <strong>12 utilitaires</strong>, Transports Morel a besoin de <strong>6 VOLT 22</strong> (2 points de charge chacune), installées à <strong>1 200 € HT</strong> par borne, et de VOLT Manager à <strong>15 € HT par mois et par point de charge</strong>. Karine Morel estime économiser <strong>1 650 € par mois</strong> en carburant et en entretien.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Calcule le montant de l'investissement HT (bornes + installation).</p></div>
+      <div class="question"><span class="q-num">2</span><p>Calcule en combien de mois les économies remboursent l'investissement.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Calcule le coût mensuel de VOLT Manager, puis son coût par jour et par véhicule (arrondi au centime, 365 jours).</p></div>
+      <div class="question"><span class="q-num">4</span><p>Rédige une phrase de justification du prix par la division et une par la multiplication.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> 6 bornes × 2 points = 12 points de charge.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <code>Bornes = 6 × 3 750 = 22 500 € HT</code><code>Installation = 6 × 1 200 = 7 200 € HT</code><code>Investissement = 22 500 + 7 200 = 29 700 € HT</code></div>
+      <div class="corr-etape"><span class="c-num">2</span> <code>29 700 / 1 650 = 18 mois</code></div>
+      <div class="corr-etape"><span class="c-num">3</span> <code>VOLT Manager = 12 × 15 = 180 € HT par mois</code><code>Par jour = 180 × 12 / 365 = 5,92 €</code><code>Par véhicule et par jour = 5,92 / 12 = 0,49 €</code></div>
+      <div class="corr-etape"><span class="c-num">4</span> <p class="res">Division : <em>« La supervision vous coûte moins de 50 centimes par véhicule et par jour. »</em> · Multiplication : <em>« Avec 19 800 € d'économies par an, votre installation est remboursée en 18 mois. »</em></p><p class="conclu">Un prix justifié par des calculs exacts rassure le client et renforce ta crédibilité.</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 24</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Défendre son prix en 4 étapes</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Jeu de rôle de 3 minutes. Karine Morel dit : <em>« 29 700 €, c'est beaucoup trop cher. »</em> Le vendeur n'a pas le droit de proposer de remise.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Le vendeur isole le prix, comprend, puis justifie avec au moins 2 techniques différentes.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Le groupe lève un carton virtuel (main levée) à chaque étape réussie.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Rejoue la scène avec le prix de ta propre solution (fiche descriptive).</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Isoler : <em>« À part le prix, la solution vous convient-elle ? »</em> · Comprendre : <em>« Trop cher par rapport à quoi ? »</em> · Justifier : division (18 mois de remboursement), addition (pose, garantie, hotline), comparaison (gestion de la puissance incluse).</div>
+      <div class="corr-etape"><span class="c-num">2</span> Erreur à éviter : proposer une remise dès la première objection. Le client pense alors que le prix était gonflé.</div>
+      <div class="corr-etape"><span class="c-num">3</span> <p class="conclu">Critère évalué : « une solution technique et commerciale répondant aux besoins du client est proposée », au bon prix.</p></div>
+    </div>
+  </div>
+</details>
+<hr class="section-sep">
+
+<!-- BLOC 7 -->
+<div class="bloc-titre" id="marge" style="margin-top:40px">
+  <span class="icone">🧮</span>
+  <h2><small>Séance 7</small>Bloc 7 – Calculer sa marge</h2>
+</div>
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Marge commerciale = prix de vente HT – prix d'achat HT.</code>
+  <code>Taux de marge = (marge commerciale / prix d'achat HT) × 100 · calculé sur le prix d'achat.</code>
+  <code>Taux de marque = (marge commerciale / prix de vente HT) × 100 · calculé sur le prix de vente.</code>
+  <code>Marge = prix d'achat HT × taux de marge / 100 = prix de vente HT × taux de marque / 100.</code>
+  <code>Prix de vente HT = prix d'achat HT × (1 + taux de marge / 100) = prix d'achat HT / (1 – taux de marque / 100).</code>
+  <code>Prix d'achat HT = prix de vente HT × (1 – taux de marque / 100) = prix de vente HT / (1 + taux de marge / 100).</code>
+  <code>Coefficient multiplicateur = prix de vente TTC / prix d'achat HT · prix de vente TTC = prix d'achat HT × coefficient.</code>
+  <code>TVA à 20 % : prix TTC = prix HT × 1,2 · prix HT = prix TTC / 1,2.</code>
+</div>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 25</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Les trois indicateurs du câble de recharge</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">VOLTÉO achète un câble de recharge type 2 à son fournisseur <strong>120 € HT</strong> et le revend <strong>180 € HT</strong>.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Calcule la marge commerciale.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Calcule le taux de marge et le taux de marque (arrondis à 0,1 %).</p></div>
+      <div class="question"><span class="q-num">3</span><p>Explique pourquoi le taux de marque est toujours plus petit que le taux de marge.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <code>Marge = 180 – 120 = 60 €</code></div>
+      <div class="corr-etape"><span class="c-num">2</span> <code>Taux de marge = 60 / 120 × 100 = 50,0 %</code><code>Taux de marque = 60 / 180 × 100 = 33,3 %</code></div>
+      <div class="corr-etape"><span class="c-num">3</span> <p class="res">La même marge est divisée par un nombre plus grand (le prix de vente) pour le taux de marque.</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 26</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Compléter la grille tarifaire VOLTÉO</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Marc Delorme te transmet une grille incomplète. Reproduis-la sur ton ordinateur et complète-la.</div>
+    <div class="table-wrap"><table class="tableau-donnees"><thead><tr><th>Modèle</th><th>Prix de vente HT</th><th>Prix d'achat HT</th><th>Taux de marge</th><th>Taux de marque</th><th>Marge</th></tr></thead><tbody><tr><td>VOLT 7</td><td>1 000 €</td><td>?</td><td>?</td><td>40 %</td><td>?</td></tr><tr><td>VOLT 22</td><td>?</td><td>2 400 €</td><td>56,25 %</td><td>?</td><td>?</td></tr><tr><td>VOLT 50 DC</td><td>25 000 €</td><td>?</td><td>?</td><td>?</td><td>7 500 €</td></tr></tbody></table></div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Complète la grille (arrondis à 0,1 %).</p></div>
+      <div class="question"><span class="q-num">2</span><p>Quel modèle rapporte la plus forte marge en euros ? le plus fort taux de marque ?</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> commence par la donnée qui te permet de trouver la marge.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <code>VOLT 7 : marge = 1 000 × 40 / 100 = 400 € · PA = 1 000 – 400 = 600 € · taux de marge = 400 / 600 × 100 = 66,7 %</code><code>VOLT 22 : marge = 2 400 × 56,25 / 100 = 1 350 € · PV = 2 400 + 1 350 = 3 750 € · taux de marque = 1 350 / 3 750 × 100 = 36,0 %</code><code>VOLT 50 DC : PA = 25 000 – 7 500 = 17 500 € · taux de marge = 7 500 / 17 500 × 100 = 42,9 % · taux de marque = 7 500 / 25 000 × 100 = 30,0 %</code></div>
+      <div class="corr-etape"><span class="c-num">2</span> <p class="res">Marge la plus forte en euros : VOLT 50 DC (7 500 €) · taux de marque le plus fort : VOLT 7 (40 %).</p><p class="conclu">Vendre une VOLT 50 DC rapporte autant de marge que plus de 18 VOLT 7 : c'est un enjeu pour la gestion du risque affaire.</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 27</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Le coefficient des revendeurs</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">VOLTÉO vend aussi le câble type 2 à des magasins d'accessoires automobiles, au prix de <strong>180 € HT</strong>. Le magasin Auto Pièces 35 applique un <strong>coefficient multiplicateur de 1,8</strong>. Un autre revendeur affiche le câble à <strong>351 € TTC</strong>. TVA à 20 %.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Calcule le prix de vente TTC d'Auto Pièces 35.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Calcule son prix de vente HT, sa marge et son taux de marque.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Calcule le coefficient multiplicateur de l'autre revendeur.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <code>PV TTC = 180 × 1,8 = 324 €</code></div>
+      <div class="corr-etape"><span class="c-num">2</span> <code>PV HT = 324 / 1,2 = 270 €</code><code>Marge = 270 – 180 = 90 €</code><code>Taux de marque = 90 / 270 × 100 = 33,3 %</code></div>
+      <div class="corr-etape"><span class="c-num">3</span> <code>Coefficient = 351 / 180 = 1,95</code> <p class="conclu">Connaître la marge de ses revendeurs aide à négocier avec eux : un revendeur à 1,95 a plus de place pour faire une promotion.</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 28</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Expliquer sa marge à la commission</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">La commission te demande : <em>« Quelle marge votre entreprise réalise-t-elle sur cette affaire ? »</em></div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Recherche (auprès de ton tuteur ou dans les documents de ton entreprise) le prix de vente et, si c'est possible, la marge ou le taux de marque de ta solution.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Explique à l'oral, en 1 minute, la différence entre taux de marge et taux de marque, avec un exemple chiffré de ton entreprise ou de VOLTÉO.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Si l'entreprise ne communique pas ses marges, dis-le clairement et utilise la marge de manœuvre autorisée (remise maximale) : c'est une réponse acceptable.</div>
+      <div class="corr-etape"><span class="c-num">2</span> Exemple : <em>« Sur la VOLT 22, la marge est de 1 350 € : c'est 56,25 % du prix d'achat (taux de marge) et 36 % du prix de vente (taux de marque). »</em> <p class="conclu">Lien avec la compétence C1.3 : gérer le risque affaire et le risque client.</p></div>
+    </div>
+  </div>
+</details>
+<hr class="section-sep">
+
+<!-- BLOC 8 -->
+<div class="bloc-titre" id="remises" style="margin-top:40px">
+  <span class="icone">✂️</span>
+  <h2><small>Séance 8</small>Bloc 8 – Réductions et marge de manœuvre</h2>
+</div>
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Remise = réduction selon la quantité achetée ou l'importance du client · ristourne = réduction calculée sur le total des achats d'un client sur une période · rabais = réduction pour un défaut de qualité, de conformité ou un retard de livraison · escompte = réduction financière pour un paiement comptant.</code>
+  <code>Toute réduction diminue le prix de vente, donc la marge.</code>
+  <code>Prix net HT = prix de vente HT × (1 – taux de remise / 100).</code>
+  <code>Quantité à vendre pour garder la même marge globale = marge globale sans remise / nouvelle marge unitaire (arrondir à l'unité supérieure).</code>
+  <code>Marge de manœuvre = remise maximale autorisée par l'entreprise · on ne la dépasse jamais.</code>
+  <code>Concession = jamais gratuite · on demande une contrepartie : paiement comptant, quantité plus importante, engagement de durée, recommandation à d'autres clients.</code>
+  <code>La remise n'est pas obligatoire : le commercial peut refuser si elle réduit trop la marge.</code>
+</div>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 29</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Remise, ristourne, rabais ou escompte ?</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Nomme la réduction accordée dans chaque situation.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Transports Morel commande 6 bornes au lieu de 4 : 5 % de réduction.</p></div>
+      <div class="question"><span class="q-num">2</span><p>L'installation chez Le Belvédère a pris 10 jours de retard : 300 € déduits de la facture.</p></div>
+      <div class="question"><span class="q-num">3</span><p>La mairie paie à réception de la facture au lieu de 30 jours : 2 % de réduction.</p></div>
+      <div class="question"><span class="q-num">4</span><p>En fin d'année, un revendeur reçoit 3 % du total de ses achats de câbles.</p></div>
+      <div class="question"><span class="q-num">5</span><p>Une borne livrée avec une rayure sur la carrosserie : 150 € de réduction.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Remise.</div>
+      <div class="corr-etape"><span class="c-num">2</span> Rabais (retard).</div>
+      <div class="corr-etape"><span class="c-num">3</span> Escompte.</div>
+      <div class="corr-etape"><span class="c-num">4</span> Ristourne.</div>
+      <div class="corr-etape"><span class="c-num">5</span> Rabais (défaut de qualité).</div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 30</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Le vrai coût d'une remise de 10 %</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">VOLT 22 : prix de vente <strong>3 750 € HT</strong>, prix d'achat <strong>2 400 € HT</strong>. Un client envisage d'en acheter <strong>8</strong> et demande <strong>10 %</strong> de remise.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Calcule la marge unitaire et la marge globale sans remise.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Calcule le prix net, la marge unitaire et le taux de marque avec 10 % de remise.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Combien de bornes faut-il vendre avec la remise pour garder la même marge globale ?</p></div>
+      <div class="question"><span class="q-num">4</span><p>Même question avec une remise de 5 %.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <code>Marge unitaire = 3 750 – 2 400 = 1 350 €</code><code>Marge globale = 8 × 1 350 = 10 800 €</code></div>
+      <div class="corr-etape"><span class="c-num">2</span> <code>Prix net = 3 750 × 0,9 = 3 375 € HT</code><code>Marge unitaire = 3 375 – 2 400 = 975 €</code><code>Taux de marque = 975 / 3 375 × 100 = 28,9 %</code></div>
+      <div class="corr-etape"><span class="c-num">3</span> <code>10 800 / 975 = 11,08 → 12 bornes</code></div>
+      <div class="corr-etape"><span class="c-num">4</span> <code>Prix net = 3 562,50 € · marge = 1 162,50 € · 10 800 / 1 162,50 = 9,29 → 10 bornes</code> <p class="conclu">10 % de remise font perdre 28 % de la marge unitaire (375 € sur 1 350 €). Une remise se négocie toujours contre une quantité plus importante.</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 31</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Fixer les marges de manœuvre</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">La direction de VOLTÉO fixe une remise maximale par modèle.</div>
+    <div class="table-wrap"><table class="tableau-donnees"><thead><tr><th>Modèle</th><th>Prix d'achat HT</th><th>Taux de marque</th><th>Remise maximale</th></tr></thead><tbody><tr><td>VOLT 7</td><td>600 €</td><td>40 %</td><td>5 %</td></tr><tr><td>VOLT 22</td><td>2 400 €</td><td>36 %</td><td>8 %</td></tr><tr><td>VOLT 50 DC</td><td>17 500 €</td><td>30 %</td><td>3 %</td></tr></tbody></table></div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Calcule le prix de vente et la marge maximale (sans remise) de chaque modèle.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Calcule la marge minimale (avec remise maximale) et le nouveau taux de marque (arrondi à 0,1 %).</p></div>
+      <div class="question"><span class="q-num">3</span><p>Pour la VOLT 22, Marc Delorme veut garder un taux de marque d'au moins 32 %. Quelle remise maximale peut-il accorder (arrondi à 0,1 % inférieur) ?</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> prix de vente HT = prix d'achat HT / (1 – taux de marque / 100).</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <div class="table-wrap"><table class="tableau-corr"><thead><tr><th>Modèle</th><th>Prix de vente HT</th><th>Marge maximale</th></tr></thead><tbody><tr><td>VOLT 7</td><td class="val">600 / 0,6 = 1 000 €</td><td class="val">400 €</td></tr><tr><td>VOLT 22</td><td class="val">2 400 / 0,64 = 3 750 €</td><td class="val">1 350 €</td></tr><tr><td>VOLT 50 DC</td><td class="val">17 500 / 0,7 = 25 000 €</td><td class="val">7 500 €</td></tr></tbody></table></div></div>
+      <div class="corr-etape"><span class="c-num">2</span> <div class="table-wrap"><table class="tableau-corr"><thead><tr><th>Modèle</th><th>Prix net</th><th>Marge minimale</th><th>Taux de marque</th></tr></thead><tbody><tr><td>VOLT 7</td><td class="val">950 €</td><td class="val">350 €</td><td class="val">36,8 %</td></tr><tr><td>VOLT 22</td><td class="val">3 450 €</td><td class="val">1 050 €</td><td class="val">30,4 %</td></tr><tr><td>VOLT 50 DC</td><td class="val">24 250 €</td><td class="val">6 750 €</td><td class="val">27,8 %</td></tr></tbody></table></div></div>
+      <div class="corr-etape"><span class="c-num">3</span> <code>Prix net minimal = 2 400 / (1 – 0,32) = 3 529,41 €</code><code>Remise = (3 750 – 3 529,41) / 3 750 × 100 = 5,88 % → 5,8 %</code> <p class="conclu">La marge de manœuvre se calcule avant l'entretien : elle fait partie de tes objectifs de négociation (objectif haut, objectif bas).</p></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 32</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Négociation simulée : la remise de l'hôtel</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Thomas Leroy veut <strong>3 VOLT 22</strong> et demande <strong>15 %</strong> de remise. Ta remise maximale est de <strong>8 %</strong>. Jeu de rôle de 4 minutes en binôme, le groupe observe.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Avant de jouer, calcule la marge totale sans remise, avec 8 % et avec 15 %.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Prépare 3 contreparties à demander en échange d'une concession.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Joue la négociation : défends d'abord ton prix, puis concède par paliers, toujours avec une contrepartie.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <code>Sans remise : 3 × 1 350 = 4 050 €</code><code>Avec 8 % : 3 × (3 450 – 2 400) = 3 150 €</code><code>Avec 15 % : 3 × (3 187,50 – 2 400) = 2 362,50 €</code></div>
+      <div class="corr-etape"><span class="c-num">2</span> Exemples : contrat VOLT Manager sur 3 ans · paiement comptant · commande d'une quatrième borne · témoignage de l'hôtel auprès d'autres prospects.</div>
+      <div class="corr-etape"><span class="c-num">3</span> Attendus : pas de remise avant d'avoir justifié le prix · concessions progressives (3 %, puis 5 %…) · jamais au-delà de 8 % · reformulation de l'accord à la fin. <p class="conclu">C'est exactement ce que la commission observe en situation 2 : une démarche proactive qui préserve la rentabilité.</p></div>
+    </div>
+  </div>
+</details>
+<hr class="section-sep">
+
+<!-- BLOC 9 -->
+<div class="bloc-titre" id="simulation" style="margin-top:40px">
+  <span class="icone">🎬</span>
+  <h2><small>Séance 9</small>Bloc 9 – L'entretien en entier</h2>
+</div>
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Enchaînement : argumentation sélectionnée → contrôle → traitement des objections → présentation du prix (sandwich ou boule de neige) → défense du prix → concession avec contrepartie si nécessaire → reformulation de l'accord.</code>
+  <code>Ce que la commission observe en situation 2 : une démarche proactive de négociation · une solution technique et commerciale qui répond aux besoins du client · des outils de communication et de négociation adaptés au contexte.</code>
+  <code>Les erreurs qui coûtent cher : réciter tout l'argumentaire · contredire le client · annoncer le prix trop tôt · accorder une remise sans contrepartie · oublier les questions de contrôle.</code>
+</div>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 33</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Remettre l'entretien dans l'ordre</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Voici 7 répliques d'un entretien avec Julien Faure, dans le désordre.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Remets-les dans l'ordre : A. <em>« Par rapport à quoi trouvez-vous ce prix élevé ? »</em> · B. <em>« Avec VOLT Manager, vous suivez chaque recharge depuis votre téléphone. Je vous montre ? »</em> · C. <em>« Pour 29 700 € HT, vos 12 utilitaires sont rechargés chaque nuit, la puissance est gérée et la garantie dure 3 ans. »</em> · D. <em>« Cette solution vous convient-elle ? »</em> · E. <em>« Nous sommes donc d'accord sur 6 VOLT 22 posées le 3 du mois prochain. »</em> · F. <em>« C'est remboursé en 18 mois grâce à vos économies. »</em> · G. <em>« C'est quand même cher. »</em></p></div>
+      <div class="question"><span class="q-num">2</span><p>Nomme l'étape de l'entretien correspondant à chaque réplique.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> B – D – C – G – A – F – E.</div>
+      <div class="corr-etape"><span class="c-num">2</span> B argumentation · D contrôle · C présentation du prix (boule de neige) · G objection prix · A comprendre · F justifier (multiplication et division) · E reformulation de l'accord.</div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 34</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Trouver les 5 erreurs du vendeur</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Un stagiaire d'une autre agence a mené ce rendez-vous avec Nadia Benali.</div>
+    <div class="table-wrap"><table class="tableau-donnees"><thead><tr><th>Qui</th><th>Réplique</th></tr></thead><tbody><tr><td>Vendeur</td><td><em>« Bonjour, alors nos bornes coûtent 3 750 € HT. »</em></td></tr><tr><td>N. Benali</td><td><em>« Je crains qu'elles soient abîmées sur la place publique. »</em></td></tr><tr><td>Vendeur</td><td><em>« Mais non, c'est faux, elles sont très solides. »</em></td></tr><tr><td>N. Benali</td><td><em>« Et le prix me semble élevé. »</em></td></tr><tr><td>Vendeur</td><td><em>« Je pourrais peut-être vous faire 12 %. »</em></td></tr><tr><td>N. Benali</td><td><em>« Bon, je vais réfléchir. »</em></td></tr><tr><td>Vendeur</td><td><em>« D'accord, au revoir. »</em></td></tr></tbody></table></div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Repère les 5 erreurs.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Réécris les 3 répliques du vendeur qui posent le plus problème.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> 1. prix annoncé d'entrée, sans argument · 2. objection contredite (« c'est faux ») · 3. aucune preuve (IP54, acier) · 4. remise sans contrepartie et au-delà de la marge de manœuvre de 8 %, au conditionnel · 5. aucune reformulation ni prochain rendez-vous.</div>
+      <div class="corr-etape"><span class="c-num">2</span> <em>« Vous avez raison d'y penser pour un espace public. Nos bornes sont en acier, indice IP54 ; je vous montre la fiche technique. »</em> · <em>« À part le prix, la solution vous convient-elle ? »</em> · <em>« Je vous propose de nous revoir jeudi avec votre élu en charge des travaux. Cela vous convient-il ? »</em></div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 35</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Simulation complète chez Transports Morel</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Simulation de 8 minutes. Karine Morel (jouée par un étudiant) a reçu le devis BornExpress et dispose d'un budget de <strong>27 000 € HT</strong>. Proposition VOLTÉO : <strong>29 700 € HT</strong>. Remise maximale : 8 % sur les bornes. Deux observateurs, un chronométreur.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Prépare en 5 minutes : 3 arguments, 3 objections probables et leurs réponses, ta stratégie de prix.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Joue la simulation.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Les observateurs évaluent avec les 3 critères du mémo, puis le vendeur dit en 1 minute ce qu'il a apporté au client et ce qu'il ferait ensuite.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> 8 % de remise sur les 22 500 € de bornes = 1 800 €. Cela suffit-il pour entrer dans le budget ?</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <code>Avec 8 % sur les bornes : 29 700 – 1 800 = 27 900 € HT &gt; 27 000 €</code> La remise seule ne suffit pas : il faut aussi justifier le prix (remboursement en 18 mois, gestion de la puissance incluse, 900 € d'option chez BornExpress) ou adapter la solution (par exemple, étaler la pose en deux tranches).</div>
+      <div class="corr-etape"><span class="c-num">2</span> Attendus : arguments argent et sécurité pour Karine Morel · compensation face à BornExpress · défense du prix avant toute remise · concession avec contrepartie (paiement comptant, contrat VOLT Manager 3 ans).</div>
+      <div class="corr-etape"><span class="c-num">3</span> <p class="conclu">Cette minute d'analyse prépare l'entretien de 10 minutes qui suit la négociation simulée en situation 2 : valeur ajoutée apportée au client, puis actions de suivi envisagées.</p></div>
+    </div>
+  </div>
+</details>
+<hr class="section-sep">
+
+<!-- BLOC 10 -->
+<div class="bloc-titre" id="examen" style="margin-top:40px">
+  <span class="icone">🎓</span>
+  <h2><small>Séance 10</small>Bloc 10 – Entraînement à l'épreuve E5</h2>
+</div>
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Épreuve E5 – conception et négociation de solutions technico-commerciales (anciennement E4).</code>
+  <code>Situation 1 : présentation orale de la préparation d'un entretien (20 min au maximum) + entretien avec la commission (10 min au maximum) · compétences C1.1 et C1.3.</code>
+  <code>Situation 2 : négociation simulée à partir de la situation modifiée (15 à 20 min) + entretien (10 min au maximum) sur la valeur ajoutée apportée au client et les actions de suivi · compétences C1.2, C1.4 et C1.5.</code>
+  <code>Changements de paramètres possibles : les acteurs de l'entretien · le contexte commercial · le contexte technique · le contexte concurrentiel.</code>
+</div>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 36</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Sujet complet : présenter tes outils de négociation</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Tu présentes à la commission les outils préparés pour ton entretien avec Transports Morel (blocs 1 à 9).</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Présente en 5 minutes : l'argumentaire sélectionné pour Karine Morel et Julien Faure, la fiche de traitement des objections, la grille de prix et ta marge de manœuvre.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Le groupe évalue avec les critères : des outils de négociation adaptés sont préparés · le risque client / affaire est pris en compte.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Plan attendu : 1. rappel du besoin (12 utilitaires, recharge de nuit) · 2. arguments retenus et mobiles SONCASE de chaque interlocuteur · 3. objections probables et réponses (dont BornExpress) · 4. proposition chiffrée (29 700 € HT, remboursement en 18 mois) · 5. marge de manœuvre (8 % maximum sur les bornes, contreparties prévues).</div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 37</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Les questions de la commission</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Après la négociation simulée, la commission t'interroge pendant 10 minutes au maximum.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Pourquoi n'avez-vous pas accordé la remise demandée dès le début ?</p></div>
+      <div class="question"><span class="q-num">2</span><p>Quel conseil avez-vous apporté à la cliente que le concurrent n'aurait pas apporté ?</p></div>
+      <div class="question"><span class="q-num">3</span><p>Quelles actions de suivi prévoyez-vous ?</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Pour préserver la marge, ne pas dévaloriser l'offre et rester crédible : une remise immédiate laisse penser que le prix était gonflé.</div>
+      <div class="corr-etape"><span class="c-num">2</span> Exemple : le dimensionnement (6 bornes doubles pour 12 véhicules) et la gestion de la puissance pour ne pas dépasser l'abonnement électrique.</div>
+      <div class="corr-etape"><span class="c-num">3</span> Compte rendu de visite et mise à jour du CRM · envoi du devis révisé · appel de suivi après la mise en service · mesure de la satisfaction.</div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 38</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Changement de paramètre</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Le professeur tire au sort un changement de paramètre pour la simulation chez Transports Morel : <strong>A.</strong> contexte concurrentiel : BornExpress baisse son prix à 3 000 € HT et inclut la gestion de la puissance · <strong>B.</strong> acteurs : Karine Morel est absente, Julien Faure reçoit seul, avec un budget plafonné à 25 000 € HT · <strong>C.</strong> contexte technique : 4 utilitaires supplémentaires arrivent dans 6 mois.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Analyse en 3 minutes ce que ce changement modifie : arguments, objections, prix, objectifs.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Joue les 5 premières minutes de la négociation modifiée avec un binôme.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> le paramètre modifié change souvent l'interlocuteur ou l'argument principal, rarement tout l'entretien.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> A. le prix devient une objection fondée plus forte : compensation par l'installation salariée, le délai de 3 semaines, la garantie 3 ans et la hotline 7 j/7 · B. arguments confort et nouveauté pour Julien Faure, proposition dans la limite de son budget (par exemple une première tranche de bornes) et rendez-vous de suivi avec Karine Morel · C. dimensionner pour 16 véhicules (8 VOLT 22), contrepartie de quantité pour justifier une remise.</div>
+      <div class="corr-etape"><span class="c-num">2</span> Attendus : prise en compte immédiate du changement · questions de découverte sur le nouveau contexte · objectifs reformulés.</div>
+    </div>
+  </div>
+</details>
+
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 39</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Check-list des annexes de ta fiche descriptive</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">Ta fiche descriptive doit être rendue en février. Ce chapitre t'a fait produire plusieurs annexes.</div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Vérifie que tu disposes : de l'argumentaire entreprise et produit · de la fiche de traitement des objections prévisibles · des tarifs et des conditions de vente · de ta marge de manœuvre (remise maximale, contreparties).</p></div>
+      <div class="question"><span class="q-num">2</span><p>Note les 3 éléments à compléter en priorité et la personne de ton entreprise qui peut te les donner.</p></div>
+    </div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Contenu attendu : argumentaire avec preuves réelles · objections classées avec technique et question de contrôle · tarifs à jour · remise maximale validée par ton tuteur · contreparties possibles.</div>
+      <div class="corr-etape"><span class="c-num">2</span> <p class="conclu">Ces annexes alimentent la partie « stratégie de négociation » de la fiche descriptive : objectifs de l'entretien et outils technico-commerciaux conçus ou adaptés par toi.</p></div>
+    </div>
+  </div>
+</details>
+</main>
+
+<footer class="site-footer">
+  BTS CCST – Bloc 1, épreuve E5 &nbsp;|&nbsp; Chapitre 9 : argumenter, traiter les objections et défendre sa marge &nbsp;|&nbsp; 39 exercices progressifs
+</footer>
+
+
+<script>
+function toggleCorr(btn) {
+  const corr = btn.nextElementSibling;
+  const isVisible = corr.classList.contains('visible');
+  corr.classList.toggle('visible', !isVisible);
+  btn.textContent = isVisible ? '✅ Voir la correction' : '🔒 Masquer la correction';
+}
+</script>
+</body>
+</html>
